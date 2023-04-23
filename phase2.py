@@ -1,8 +1,5 @@
 import json
 
-with open("samples/phase2-sample/in/input1.json", mode="r") as file:
-    data = json.load(file)
-
 def DFA_Simplifier(data: dict) -> dict:
 
     states = sorted(data['states'][2:-2].split("','"))
