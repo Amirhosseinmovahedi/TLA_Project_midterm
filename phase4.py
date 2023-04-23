@@ -77,3 +77,23 @@ def union(data1: dict, data2: dict) -> dict:
             transitions_d2[i][j] = transitions_d2[i][j][:-1] + "}"
         new_transitions_d2[tmp[i]] = transitions_d2[i]
 
+    transitions_d2 = new_transitions_d2
+    new_alphabet = alphabet_d1 + alphabet_d2
+    new_states = states_d1 + new_states_d2
+    new_initial_state = "q" + str(len(new_states))
+    new_final_state = "q" + str(len(new_states) + 1)
+    new_states.append(new_final_state)
+    new_states.append(new_initial_state)
+    new_transitions = {**transitions_d1, **transitions_d2}
+    new_transitions[new_initial_state] = {}
+    new_transitions[new_initial_state][""] = "{'" + initial_state_d1 + "','" + tmp[initial_state_d2] + "'}"
+    if new_transitions[final_states_d1].get("", False):
+        new_transitions[final_states_d1] = new_transitions[final_states_d1][:-1] + ",'" + new_final_state + "'}"
+    else:
+        new_transitions[final_states_d1][""] = "{'" + new_final_state + "'}"
+    if new_transitions[tmp[final_states_d2]].get("", False):
+        new_transitions[tmp[final_states_d2]] = new_transitions[tmp[final_states_d2]][:-1] + ",'" + new_final_state + "'}"
+    else:
+        new_transitions[tmp[final_states_d2]][""] = "{'" + new_final_state + "'}"
+    new_transitions[new_final_state] = {}
+
