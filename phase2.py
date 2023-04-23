@@ -143,6 +143,9 @@ def DFA_Simplifier(data: dict) -> dict:
     new_final_states_string = new_final_states_string[:-1] + "}"
     new_data["final_states"] = new_final_states_string
 
+    for i in range(len(partition)):
+        print(f"q{i} --> {partition[i]}") 
+
     return new_data
 
 
