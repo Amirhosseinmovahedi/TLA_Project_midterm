@@ -54,3 +54,26 @@ def union(data1: dict, data2: dict) -> dict:
     alphabet_d1 = data1['input_symbols'][2:-2].split("','")
     alphabet_d2 = data2['input_symbols'][2:-2].split("','")
 
+    # change names of d2's states
+    new_states_d2 = []
+    new_transitions_d2 = {}
+    n = len(states_d1)
+    tmp = {}
+    for i in states_d2:
+        tmp[i] = "q" + str(n)
+        n += 1
+    for i in states_d2:
+        new_states_d2.append(tmp[i])
+    for i in transitions_d2.keys():
+        new_transitions_d2[tmp[i]] = {}
+        for j in transitions_d2[i].keys():
+            list_of_transmited_states = transitions_d2[i][j][2:-2].split("','")
+            new_transmited_states = []
+            for k in list_of_transmited_states:
+                new_transmited_states.append(tmp[k])
+            transitions_d2[i][j] = "{"
+            for k in new_transmited_states:
+                transitions_d2[i][j] += "'" + k + "',"
+            transitions_d2[i][j] = transitions_d2[i][j][:-1] + "}"
+        new_transitions_d2[tmp[i]] = transitions_d2[i]
+
