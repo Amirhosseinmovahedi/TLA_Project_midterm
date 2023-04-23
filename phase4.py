@@ -174,3 +174,23 @@ def concatenation(data1: dict, data2: dict) -> dict:
         new_transitions[tmp[final_states_d2]] = new_transitions[tmp[final_states_d2]][:-1] + ",'" + new_final_state + "'}"
     else:
         new_transitions[tmp[final_states_d2]][""] = "{'" + new_final_state + "'}"
+
+
+    output_data = {}
+    output_data['states'] = "{"
+    for i in new_states:
+        output_data['states'] += "'" + i + "',"
+    output_data["states"] = output_data["states"][:-1] + "}"
+
+    output_data['input_symbols'] = "{"
+    for i in new_alphabet:
+        output_data['input_symbols'] += "'" + i + "',"
+    output_data["input_symbols"] = output_data["input_symbols"][:-1] + "}"
+
+    output_data['transitions'] = new_transitions
+    output_data['initial_state'] = new_initial_state
+    output_data['final_states'] = "{'" + new_final_state + "'}"
+    
+    return output_data
+
+
