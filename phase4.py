@@ -194,3 +194,44 @@ def concatenation(data1: dict, data2: dict) -> dict:
     return output_data
 
 
+def star(data: dict) -> dict:
+    makeSingleFinalState(data)
+
+    initial_state = data['initial_state']
+    states = data['states'][2:-2].split("','")
+    states.sort(key=lambda x: int(x[1:]))
+    final_states = data['final_states'][2:-2]
+    transitions = data['transitions'].copy()
+    alphabet = data['input_symbols'][2:-2].split("','")
+
+    new_initial_state = "q" + str(len(states))
+    new_final_state = "q" + str(len(states) + 1)
+    states.append(new_initial_state)
+    states.append(new_final_state)
+    transitions[new_initial_state] = {}
+    transitions[new_initial_state][""] = "{'" + initial_state + "','" + new_final_state + "'}"
+    transitions[new_final_state] = {}
+    transitions[new_final_state][""] = "{'" + new_initial_state + "'}"
+    if transitions[final_states].get("", False):
+        transitions[final_states] = transitions[final_states][:-1] + ",'" + new_final_state + "'}"
+    else:
+        transitions[final_states][""] = "{'" + new_final_state + "'}"
+
+    output_data = {}
+    output_data['states'] = "{"
+    for i in states:
+        output_data['states'] += "'" + i + "',"
+    output_data["states"] = output_data["states"][:-1] + "}"
+
+    output_data['input_symbols'] = "{"
+    for i in alphabet:
+        output_data['input_symbols'] += "'" + i + "',"
+    output_data["input_symbols"] = output_data["input_symbols"][:-1] + "}"
+
+    output_data['transitions'] = transitions
+    output_data['initial_state'] = new_initial_state
+    output_data['final_states'] = "{'" + new_final_state + "'}"
+    
+    return output_data
+
+
