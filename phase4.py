@@ -1,3 +1,5 @@
+import json
+
 def is_NFA(data: dict) -> bool:
     """Returns true if the FA is an NFA"""
     transitions = data["transitions"].copy()
@@ -235,3 +237,73 @@ def star(data: dict) -> dict:
     return output_data
 
 
+def main():
+    phase = input("""Enter the operation number:
+    (1) Union
+    (2) Concatenation
+    (3) Star
+>>>""")
+    if phase == "1":
+        path_d1 = input("Enter the path of the first json file: ")
+        try:
+            with open(f"{path_d1}", mode="r") as file:
+                data1 = json.load(file)
+        except:
+            print("Invalid path!")
+            return
+        path_d2 = input("Enter the path of the second json file: ")
+        try:
+            with open(f"{path_d2}", mode="r") as file:
+                data2 = json.load(file)
+        except:
+            print("Invalid path!")
+            return
+        output = union(data1, data2)
+        output_path = input("Enter the output file path: ")
+        json_object = json.dumps(output, indent=3)
+ 
+        with open(f"{output_path}", mode="w") as file:
+            file.write(json_object)
+
+    elif phase == "2":
+        path_d1 = input("Enter the path of the first json file: ")
+        try:
+            with open(f"{path_d1}", mode="r") as file:
+                data1 = json.load(file)
+        except:
+            print("Invalid path!")
+            return
+        path_d2 = input("Enter the path of the second json file: ")
+        try:
+            with open(f"{path_d2}", mode="r") as file:
+                data2 = json.load(file)
+        except:
+            print("Invalid path!")
+            return
+        output = concatenation(data1, data2)
+        output_path = input("Enter the output file path: ")
+        json_object = json.dumps(output, indent=3)
+ 
+        with open(f"{output_path}", mode="w") as file:
+            file.write(json_object)
+
+    elif phase == "3":
+        path = input("Enter the path of the json file: ")
+        try:
+            with open(f"{path}", mode="r") as file:
+                data = json.load(file)
+        except:
+            print("Invalid path!")
+            return
+        output = star(data)
+        output_path = input("Enter the output file path: ")
+        json_object = json.dumps(output, indent=3)
+ 
+        with open(f"{output_path}", mode="w") as file:
+            file.write(json_object)
+
+    else:
+        print("Invalid input!")
+
+if __name__ == "__main__":
+    main()
