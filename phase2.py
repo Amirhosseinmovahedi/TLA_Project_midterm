@@ -44,3 +44,70 @@ for i in range(len(states)):
 nonReachable_states = [x for x in states if x not in new_states]
 states = new_states
 
+# using partitioning algorithm to simplify the DFA
+partition = [[x for x in states if x not in final_states], final_states]
+flag = True
+while flag:
+    try:
+        for i in final_partitions:
+            if set(i) == set(the_part):
+                flag = False
+    except:
+        pass
+    try:
+        partition.remove(the_part)
+        for i in final_partitions:
+            partition.append(i)
+    except:
+        pass
+    for part in partition:
+        partitions_for_alphabets = {}
+        for i in alphabet:
+                partitions_for_alphabets[i] = []
+        if len(part) > 1:
+            for i in alphabet:
+                tmp = {}
+                for state in part:
+                    tmp[state] = transitions[state][i]
+                new_tmp = {}
+                for j in range(len(partition)):
+                    new_tmp[j] = set()
+                for j in tmp.keys():
+                    for k in range(len(partition)):
+                        if tmp[j] in partition[k]:
+                            new_tmp[k].add(j)
+                            break
+                for j in new_tmp.values():
+                    partitions_for_alphabets[i].append(list(j))
+
+            computation_table = [[[] for y in range(len(part))] for x in range(len(alphabet))]
+            for i in range(len(alphabet)):
+                the_alphabet = alphabet[i]
+                for j in range(len(part)):
+                    the_state = part[j]
+                    for k in partitions_for_alphabets[the_alphabet]:
+                        if the_state in k:
+                            for l in k:
+                                if l != the_state:
+                                    computation_table[i][j].append(l)
+                            break
+            new_patritions = [[] for x in range(len(part))]
+            for i in range(len(part)):
+                new_patritions[i].append(part[i])
+            for i in range(len(part)):
+                for j in range(len(alphabet)):
+                    if j == 0:
+                        new_patritions[i] += computation_table[j][i][:]
+                    else:
+                        for k in computation_table[j - 1][i]:
+                            if k not in computation_table[j][i]:
+                                new_patritions[i].remove(k)
+
+            new_patritions = [set(x) for x in new_patritions]
+            final_partitions = []
+            for i in new_patritions:
+                if i not in final_partitions:
+                    final_partitions.append(i)
+            final_partitions = [list(x) for x in final_partitions]
+            the_part = part
+
