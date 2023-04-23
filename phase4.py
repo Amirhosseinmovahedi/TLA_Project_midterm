@@ -7,3 +7,12 @@ def is_NFA(data: dict) -> bool:
                 return True
     
     return False
+
+def convertDFAtoNFA(data: dict) -> None:
+    if not is_NFA(data):
+        for i in data["transitions"].keys():
+            for j in data["transitions"][i].keys():
+                data["transitions"][i][j] = "{'" + str(data["transitions"][i][j]) + "'}"
+
+    return None
+
