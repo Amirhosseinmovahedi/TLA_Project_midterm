@@ -33,3 +33,24 @@ def makeSingleFinalState(data: dict) -> None:
                 data["transitions"][i][""] = "{'" + new_final_state + "'}"
         data['transitions'][new_final_state] = {}
 
+def union(data1: dict, data2: dict) -> dict:
+    makeSingleFinalState(data1)
+    makeSingleFinalState(data2)
+
+    initial_state_d1 = data1['initial_state']
+    initial_state_d2 = data2['initial_state']
+
+    states_d1 = data1['states'][2:-2].split("','")
+    states_d2 = data2['states'][2:-2].split("','")
+    states_d1.sort(key=lambda x: int(x[1:]))
+    states_d2.sort(key=lambda x: int(x[1:]))
+
+    final_states_d1 = data1['final_states'][2:-2]
+    final_states_d2 = data2['final_states'][2:-2]
+
+    transitions_d1 = data1['transitions'].copy()
+    transitions_d2 = data2['transitions'].copy()
+
+    alphabet_d1 = data1['input_symbols'][2:-2].split("','")
+    alphabet_d2 = data2['input_symbols'][2:-2].split("','")
+
