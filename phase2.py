@@ -111,3 +111,36 @@ while flag:
             final_partitions = [list(x) for x in final_partitions]
             the_part = part
 
+new_states = []
+converted_dict = {}
+new_final_states = []
+for i in range(len(partition)):
+    new_states.append(f"q{i}")
+for i in range(len(partition)):
+    for j in partition[i]:
+        converted_dict[j] = new_states[i]
+for i in final_states:
+    if converted_dict[i] not in new_final_states:
+        new_final_states.append(converted_dict[i])
+new_data = {}
+# "states": "{'q0','q1','q2','q3','q4','q5'}"
+new_states_string = "{"
+for i in new_states:
+    new_states_string += f"'{i}',"
+new_states_string = new_states_string[:-1] + "}"
+new_data["states"] = new_states_string
+new_data["input_symbols"] = data['input_symbols']
+new_transition = {}
+for key in transitions.keys():
+    if key not in nonReachable_states:
+        new_transition[converted_dict[key]] = transitions[key]
+        for i in new_transition[converted_dict[key]].keys():
+            new_transition[converted_dict[key]][i] = converted_dict[transitions[key][i]]
+new_data["transitions"] = new_transition
+new_data["initial_state"] = converted_dict[data['initial_state']]
+new_final_states_string = "{"
+for i in new_final_states:
+    new_final_states_string += f"'{i}',"
+new_final_states_string = new_final_states_string[:-1] + "}"
+new_data["final_states"] = new_final_states_string
+
