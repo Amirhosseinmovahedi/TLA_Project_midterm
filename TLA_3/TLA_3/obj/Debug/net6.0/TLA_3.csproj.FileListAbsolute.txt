@@ -1,0 +1,17 @@
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\bin\Debug\net6.0\TLA_3.exe
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\bin\Debug\net6.0\TLA_3.deps.json
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\bin\Debug\net6.0\TLA_3.runtimeconfig.json
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\bin\Debug\net6.0\TLA_3.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\bin\Debug\net6.0\ref\TLA_3.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\bin\Debug\net6.0\TLA_3.pdb
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.csproj.CopyComplete
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\ref\TLA_3.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.pdb
+C:\Users\ASUS\Desktop\UNI\TLA\TLA_3\TLA_3\obj\Debug\net6.0\TLA_3.genruntimeconfig.cache
