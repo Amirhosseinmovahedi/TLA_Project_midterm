@@ -1,0 +1,17 @@
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\bin\Debug\net6.0\TLA.exe
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\bin\Debug\net6.0\TLA.deps.json
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\bin\Debug\net6.0\TLA.runtimeconfig.json
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\bin\Debug\net6.0\TLA.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\bin\Debug\net6.0\ref\TLA.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\bin\Debug\net6.0\TLA.pdb
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.csproj.CopyComplete
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\ref\TLA.dll
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.pdb
+C:\Users\ASUS\Desktop\UNI\TLA\TLA\TLA\obj\Debug\net6.0\TLA.genruntimeconfig.cache
