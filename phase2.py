@@ -15,7 +15,7 @@ def DFA_Simplifier(data: dict) -> dict:
     tmp_transitions = sorted(transitions.items())
     for i in range(len(tmp_transitions)):
         for j in tmp_transitions[i][1].values():
-            number = int(j[-1])
+            number = int(j[1:])
             if number not in adjList[i] and number != i: 
                 adjList[i].append(number)
 
@@ -48,18 +48,12 @@ def DFA_Simplifier(data: dict) -> dict:
     flag = True
     while flag:
         try:
-            for i in final_partitions:
-                if set(i) == set(the_part):
-                    flag = False
+            if partition == copy_partitions:
+                flag = False
         except:
             pass
-        try:
-            partition.remove(the_part)
-            for i in final_partitions:
-                partition.append(i)
-        except:
-            pass
-        for part in partition:
+        copy_partitions = partition[:]
+        for part in copy_partitions:
             partitions_for_alphabets = {}
             for i in alphabet:
                     partitions_for_alphabets[i] = []
@@ -77,7 +71,9 @@ def DFA_Simplifier(data: dict) -> dict:
                                 new_tmp[k].add(j)
                                 break
                     for j in new_tmp.values():
-                        partitions_for_alphabets[i].append(list(j))
+                        tmp_list = list(j)
+                        tmp_list.sort()
+                        partitions_for_alphabets[i].append(tmp_list)
 
                 computation_table = [[[] for y in range(len(part))] for x in range(len(alphabet))]
                 for i in range(len(alphabet)):
@@ -108,7 +104,10 @@ def DFA_Simplifier(data: dict) -> dict:
                     if i not in final_partitions:
                         final_partitions.append(i)
                 final_partitions = [list(x) for x in final_partitions]
-                the_part = part
+                # the_part = part
+                partition.remove(part)
+                for i in final_partitions:
+                    partition.append(i)
 
     new_states = []
     converted_dict = {}
